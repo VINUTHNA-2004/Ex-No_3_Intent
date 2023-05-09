@@ -34,22 +34,215 @@ Step 7: Save and run the application.
  ```
 /*
 Program to create a layout by click button option ,open google page using Implicit Intents in Android Studio. .
-Developed by: 
-RegisterNumber:  
+Developed by: D.R.Vinuthna
+RegisterNumber:  212221230017
 */
 ```
 
 ## MainActivity.java:
+```
+package com.firstapp.ex03;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.net.Uri;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.os.Bundle;
+
+
+
+public class MainActivity extends AppCompatActivity {
+    Button explicit_btn, implicit_btn;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        explicit_btn = (Button)findViewById(R.id.explicit_Intent);
+        implicit_btn = (Button) findViewById(R.id.implicit_Intent);
+
+        //implement Onclick event for Explicit Intent
+
+        explicit_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new  Intent(getBaseContext(), activity_second.class);
+                startActivity(intent);
+
+
+            }
+        });
+        implicit_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://www.abhiandroid.com"));
+                startActivity(intent);
+            }
+        });
+    }
+}
+
+```
+## Secondactivity.java:
+
+```
+package com.firstapp.ex03;
+import androidx.appcompat.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.Toast;
+
+import android.os.Bundle;
+
+
+public class activity_second extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_second);
+        Toast.makeText(getApplicationContext(), "We are moved to second Activity",Toast.LENGTH_LONG).show();
+    }
+}
 
 
 
 
+```
 
 ## activity_main.xml:
+```
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="If you click on Explicit example we will navigate to second activity within App and if you click on Implicit example AbhiAndroid Homepage will open in Browser"
+        android:id="@+id/textView2"
+        android:clickable="false"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="42dp"
+        android:background="#3e7d02"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Explicit Intent Example"
+        android:id="@+id/explicit_Intent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="147dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Implicit Intent Example"
+        android:id="@+id/implicit_Intent"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
+
+
+
+```
+## Secondactivity.xml:
+```
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+android:paddingBottom="@dimen/activity_vertical_margin"
+android:background="#CCEEAA"
+tools:context="com.example.android.intents.SecondActivity">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:text="This is Second Activity"
+    android:id="@+id/textView"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true" />
+</RelativeLayout>
+
+
+```
+## Dimens.xml:
+```
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_vertical_margin">8dp</dimen>
+    <dimen name="activity_horizontal_margin">8dp</dimen>
+</resources>
+```
+## Androidmanifest.xml:
+```
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Ex03"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity_second" >
+
+        </activity>
+
+
+    </application>
+
+</manifest>
+```
 
 ## Output:
+![j1](https://user-images.githubusercontent.com/95067307/236993326-fe88e0e2-7570-4b8d-b8d4-08ddeb4d38ff.png)
 
+## Explicit Intent:
+![j2](https://user-images.githubusercontent.com/95067307/236993476-0bf48f89-fa96-4ecd-9fcc-f10cd5101f8e.png)
 
+## Implicit Intent:
+![j3](https://user-images.githubusercontent.com/95067307/236993503-14a8bb5d-a77a-41ca-8566-4681018ce6c2.png)
 
 ## Result:
 Thus a Simple Android Application to open google page using Implicit Intents in Android Studio was developed and executed successfully.
