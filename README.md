@@ -34,11 +34,10 @@ Step 7: Save and run the application.
  ```
 /*
 Program to create a layout by click button option ,open google page using Implicit Intents in Android Studio. .
-Developed by: D.R.Vinuthna
-RegisterNumber:  212221230017
+Developed by:D.R.Vinuthna
+RegisterNumber:212221230017
 */
 ```
-
 ## MainActivity.java:
 ```
 package com.firstapp.ex03;
@@ -91,8 +90,7 @@ public class MainActivity extends AppCompatActivity {
 }
 
 ```
-## Secondactivity.java:
-
+## Secondactivity.java
 ```
 package com.firstapp.ex03;
 import androidx.appcompat.app.AppCompatActivity;
@@ -114,15 +112,9 @@ public class activity_second extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "We are moved to second Activity",Toast.LENGTH_LONG).show();
     }
 }
-
-
-
-
 ```
-
 ## activity_main.xml:
 ```
-
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -165,11 +157,10 @@ public class activity_second extends AppCompatActivity {
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
-
-
-
 ```
-## Secondactivity.xml:
+
+
+## Secondactivity.xml
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -189,10 +180,9 @@ tools:context="com.example.android.intents.SecondActivity">
     android:layout_centerVertical="true"
     android:layout_centerHorizontal="true" />
 </RelativeLayout>
-
-
 ```
-## Dimens.xml:
+
+## Dimens.xml
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
@@ -200,9 +190,8 @@ tools:context="com.example.android.intents.SecondActivity">
     <dimen name="activity_horizontal_margin">8dp</dimen>
 </resources>
 ```
-## Androidmanifest.xml:
+## Androidmanifest.xml
 ```
-
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
@@ -234,15 +223,14 @@ tools:context="com.example.android.intents.SecondActivity">
 
 </manifest>
 ```
-
 ## Output:
-![j1](https://user-images.githubusercontent.com/95067307/236993326-fe88e0e2-7570-4b8d-b8d4-08ddeb4d38ff.png)
+![output](https://github.com/VINUTHNA-2004/Ex-No_3_Intent/blob/main/r1.png?raw=true)
+## Explicit Intent
+![output](https://github.com/VINUTHNA-2004/Ex-No_3_Intent/blob/main/r2.png?raw=true)
 
-## Explicit Intent:
-![j2](https://user-images.githubusercontent.com/95067307/236993476-0bf48f89-fa96-4ecd-9fcc-f10cd5101f8e.png)
+## Implicit Intent
+![output](https://github.com/VINUTHNA-2004/Ex-No_3_Intent/blob/main/r3.png?raw=true)
 
-## Implicit Intent:
-![j3](https://user-images.githubusercontent.com/95067307/236993503-14a8bb5d-a77a-41ca-8566-4681018ce6c2.png)
 
 ## Result:
 Thus a Simple Android Application to open google page using Implicit Intents in Android Studio was developed and executed successfully.
